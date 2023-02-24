@@ -1,0 +1,57 @@
+﻿td 
+{ 
+	font: 8pt  Tahoma,Arial; 
+}
+
+th
+{
+	font: 8pt Tahoma,Arial; 
+	background-color: #E5F0FC;
+	padding: 10px;
+	font-weight: bold;
+}
+
+tr:nth-child(odd) 
+{
+	background: #FFFFFF;
+}
+
+tr:nth-child(even) 
+{
+	background: #f7f7f7;
+}
+
+tr:hover {
+	background: #ffffcc;
+}
+
+tr.PendingCancelled td, 
+tr.OrderMarketBuy td,
+tr.OrderMarketSell td
+{
+	color: Gray;
+}
+
+tr.OrderPendingBuy td
+{
+	color: DodgerBlue;
+}
+
+tr.OrderPendingSell td
+{
+	color: Pink;
+}
+
+tr.DealBuy td
+{
+	color: Blue;
+}
+
+tr.DealSell td
+{
+	color: Red;
+}
+
+
+
+
