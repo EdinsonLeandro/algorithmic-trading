@@ -1,0 +1,23 @@
+Cryptocurrency,Buy,Sell,Percentage,Buying fee,Selling fee,Fees,Expected profit
+solana,Kucoin,Poloniex,5.83,0.1,0.2,0.30000000000000004,5.53
+solana,MEXC,Poloniex,5.67,0.1,0.2,0.30000000000000004,5.37
+solana,Poloniex,Poloniex,5.7,0.2,0.2,0.4,5.3
+solana,HTX,Poloniex,5.61,0.2,0.2,0.4,5.21
+solana,BYDFi,Poloniex,5.59,0.2,0.2,0.4,5.1899999999999995
+polkadot,Phemex,Xeggex,1.69,0.1,0.2,0.30000000000000004,1.39
+shiba-inu,Kucoin,Xeggex,1.68,0.1,0.2,0.30000000000000004,1.38
+shiba-inu,BingX,Xeggex,1.65,0.1,0.2,0.30000000000000004,1.3499999999999999
+shiba-inu,Bybit,Xeggex,1.62,0.1,0.2,0.30000000000000004,1.32
+shiba-inu,CoinEx,Xeggex,1.68,0.2,0.2,0.4,1.2799999999999998
+shiba-inu,BigOne,Xeggex,1.66,0.2,0.2,0.4,1.2599999999999998
+shiba-inu,CoinW,Xeggex,1.62,0.2,0.2,0.4,1.2200000000000002
+polkadot,OKX,Xeggex,1.51,0.1,0.2,0.30000000000000004,1.21
+polkadot,Kucoin,Xeggex,1.5,0.1,0.2,0.30000000000000004,1.2
+polkadot,BingX,Xeggex,1.5,0.1,0.2,0.30000000000000004,1.2
+polkadot,CoinEx,Xeggex,1.59,0.2,0.2,0.4,1.19
+bnb,Bybit,BigOne,1.39,0.1,0.2,0.30000000000000004,1.0899999999999999
+bnb,Binance,BigOne,1.39,0.1,0.2,0.30000000000000004,1.0899999999999999
+bnb,Kucoin,BigOne,1.38,0.1,0.2,0.30000000000000004,1.0799999999999998
+bnb,Xeggex,BigOne,1.46,0.2,0.2,0.4,1.06
+bnb,Phemex,BigOne,1.33,0.1,0.2,0.30000000000000004,1.03
+bnb,Poloniex,BigOne,1.34,0.2,0.2,0.4,0.9400000000000001

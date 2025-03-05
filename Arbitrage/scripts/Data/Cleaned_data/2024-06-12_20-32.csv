@@ -1,0 +1,25 @@
+Cryptocurrency,Buy,Sell,Percentage,Buying fee,Selling fee,Fees,Expected profit
+toncoin,BigOne,OKX,3.64,0.2,0.1,0.3,3.34
+toncoin,BigOne,Bybit,3.54,0.2,0.1,0.3,3.24
+toncoin,BigOne,Coinsbit,3.62,0.2,0.2,0.4,3.22
+toncoin,BigOne,CoinEx,3.52,0.2,0.2,0.4,3.12
+toncoin,BigOne,Kucoin,3.31,0.2,0.1,0.3,3.01
+toncoin,BigOne,BitMart,3.3,0.2,0.1,0.3,3
+toncoin,BigOne,MEXC,3.26,0.2,0.1,0.3,2.96
+toncoin,BigOne,HTX,3.26,0.2,0.2,0.4,2.86
+polkadot,BingX,Xeggex,1.8,0.1,0.2,0.3,1.5
+polkadot,Binance,Xeggex,1.8,0.1,0.2,0.3,1.5
+polkadot,CoinEx,Xeggex,1.89,0.2,0.2,0.4,1.49
+polkadot,HTX,Xeggex,1.85,0.2,0.2,0.4,1.45
+polkadot,BYDFi,Xeggex,1.82,0.2,0.2,0.4,1.42
+bnb,Phemex,BigOne,1.57,0.1,0.2,0.3,1.27
+shiba-inu,Phemex,Xeggex,1.56,0.1,0.2,0.3,1.26
+shiba-inu,OKX,Xeggex,1.52,0.1,0.2,0.3,1.22
+shiba-inu,Bitget,Xeggex,1.36,0.1,0.2,0.3,1.06
+bnb,OKX,BigOne,1.35,0.1,0.2,0.3,1.05
+bnb,Poloniex,BigOne,1.45,0.2,0.2,0.4,1.05
+shiba-inu,MEXC,Xeggex,1.34,0.1,0.2,0.3,1.04
+shiba-inu,CoinW,Xeggex,1.34,0.2,0.2,0.4,0.94
+bnb,MEXC,BigOne,1.12,0.1,0.2,0.3,0.82
+bnb,Xeggex,BigOne,1.19,0.2,0.2,0.4,0.79
+bnb,BYDFi,BigOne,1.11,0.2,0.2,0.4,0.71
