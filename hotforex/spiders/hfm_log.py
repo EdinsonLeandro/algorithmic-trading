@@ -16,12 +16,13 @@ class Config:
     BASE_URL = 'https://www.hfm.com/int/en/'
     LOGIN_URL = 'https://my.hfm.com/en/int/login'
 
-    DEFAULT_WAIT_TIME = 30  # Max time in seconds to wait for an element
+    DEFAULT_WAIT_TIME = 60  # Max time in seconds to wait for an element
 
     # Using more stable CSS selectors where possible
     COOKIES_ACCEPT_BUTTON = "button.orejime-Button--save"
     LOGIN_USERNAME_INPUT = "#emailPhone"
     LOGIN_PASSWORD_INPUT = "#password"
+    CONTINUE_BUTTON = "#submmit"
     WALLET = "[data-testid='wallet_balance']"
 
 
@@ -32,7 +33,11 @@ class HfmLogIn:
     It logs in, navigates, and scrapes provider data into a CSV file.
     """
     def __init__(self, credentials):
-        self.credentials = credentials
+        # Load .env file
+        load_dotenv()
+
+        # --- Get Credentials Securely ---
+        self.credentials = {'email': os.getenv("HFM_EMAIL"), 'password': os.getenv("HFM_PASSWORD")}
         
         # Initialize the browser instance
         self._create_driver_instance()
@@ -68,9 +73,7 @@ class HfmLogIn:
             self.driver = uc.Chrome(driver_executable_path=drivers_dir, options=option, browser_executable_path=testing_dir)
             self.driver.maximize_window()
 
-            # Navigate to the starting URL. Give time to: open a new tab, solve CAPTCHA and close the tab.
             self.driver.get(Config.BASE_URL)
-            time.sleep(random.uniform(15.5, 19.5))
 
             print("Driver instance created successfully.")
 
@@ -122,7 +125,11 @@ class HfmLogIn:
 
         # Fill credentials and submit
         self.wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, Config.LOGIN_USERNAME_INPUT)))
-        self.driver.find_element(By.CSS_SELECTOR, Config.LOGIN_USERNAME_INPUT).send_keys(self.credentials['email'])
+        username_field = self.driver.find_element(By.CSS_SELECTOR, Config.LOGIN_USERNAME_INPUT)
+        username_field.send_keys(self.credentials['email'])
+        
+        # -------- HERE: AFTER SEND THE EMAIL, I NEED TO CLICK ON "CONTINUE" BUTTON --------
+        self._wait_and_click(By.CSS_SELECTOR, Config.CONTINUE_BUTTON)        
         time.sleep(random.uniform(2, 4))
 
         # Wait for the password field to be visible and fill it
@@ -130,7 +137,7 @@ class HfmLogIn:
         password_field.send_keys(self.credentials['password'])
         time.sleep(random.uniform(2, 4))
 
-        password_field.submit()  # .submit() is cleaner than sending an ENTER key
+        self._wait_and_click(By.CSS_SELECTOR, Config.CONTINUE_BUTTON)        
         
         print("\nCredentials submitted. Please complete 2FA in the browser window.")
         # Wait for the user to complete 2FA and the dashboard to load
@@ -174,20 +181,8 @@ class HfmLogIn:
 # --- Execution Block ---
 if __name__ == "__main__":
 
-    # Load .env file
-    load_dotenv()
+    # Initialize and run the scraper
+    scraper = HfmLogIn()
+    scraper.run()
 
-    # --- Get Credentials Securely ---
-    user_email = os.getenv("HFM_EMAIL")
-    user_password = os.getenv("HFM_PASSWORD")
-
-    if not user_email or not user_password:
-        print("Email and password are required. Exiting.")
-    else:
-        user_credentials = {'email': user_email, 'password': user_password}
-        
-        # Initialize and run the scraper
-        scraper = HfmLogIn(credentials=user_credentials)
-        scraper.run()
-
-        breakpoint()
+    breakpoint()
