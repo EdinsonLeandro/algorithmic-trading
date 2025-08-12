@@ -32,7 +32,7 @@ class HfmLogIn:
     A standalone Selenium scraper for HFM copy trading strategies.
     It logs in, navigates, and scrapes provider data into a CSV file.
     """
-    def __init__(self, credentials):
+    def __init__(self):
         # Load .env file
         load_dotenv()
 
@@ -92,12 +92,7 @@ class HfmLogIn:
             
             # Short pause before click for stability
             time.sleep(random.uniform(2, 4))
-            element.click()
 
-        except ElementClickInterceptedException:
-            # If a regular click is blocked, use JavaScript to force the click
-            print(f"Warning: Element '{value}' was intercepted. Trying JavaScript click.")
-            element = self.driver.find_element(by, value)
             self.driver.execute_script("arguments[0].click();", element)
 
         except TimeoutException:
@@ -125,12 +120,13 @@ class HfmLogIn:
 
         # Fill credentials and submit
         self.wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, Config.LOGIN_USERNAME_INPUT)))
+        time.sleep(random.uniform(2, 4))  # Allow time for the page to load
+
         username_field = self.driver.find_element(By.CSS_SELECTOR, Config.LOGIN_USERNAME_INPUT)
         username_field.send_keys(self.credentials['email'])
-        
-        # -------- HERE: AFTER SEND THE EMAIL, I NEED TO CLICK ON "CONTINUE" BUTTON --------
-        self._wait_and_click(By.CSS_SELECTOR, Config.CONTINUE_BUTTON)        
-        time.sleep(random.uniform(2, 4))
+
+        # Click on "Continue" button
+        self._wait_and_click(By.CSS_SELECTOR, Config.CONTINUE_BUTTON)
 
         # Wait for the password field to be visible and fill it
         password_field = self.driver.find_element(By.CSS_SELECTOR, Config.LOGIN_PASSWORD_INPUT)
@@ -182,7 +178,7 @@ class HfmLogIn:
 if __name__ == "__main__":
 
     # Initialize and run the scraper
-    scraper = HfmLogIn()
+    scraper = HfmLogIn() # This now works as __init__ takes no arguments.
     scraper.run()
 
     breakpoint()

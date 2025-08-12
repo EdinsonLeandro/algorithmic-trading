@@ -1,4 +1,5 @@
 hotforex/Data
 hotforex/.env
-drivers
 hotforex/.vscode
+hotforex/spiders/__pycache__
+drivers
